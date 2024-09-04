@@ -1,0 +1,26 @@
+<p>Listado de Héroes</p>
+
+<!-- Si el if no se cumple es porque no se borro nada, entonces se ejecuta el else, que es una referencia local  -->
+<!-- que se encarga de invocar a su referencia cuando no hay nada en la variable. -->
+<div *ngIf="deletedHero; else nothingWasDeleted">
+  <h3>
+    Héroe borrado <small class="text-danger">{{ deletedHero }}</small>
+  </h3>
+</div>
+
+<!-- Referencia local que será invocada cunado no el cumpla el if. -->
+ <!-- Cuando se invoque se crea el h3 por así decirlo, sino no tiene caso crear el físicamente. -->
+<ng-template #nothingWasDeleted>
+  <h3>No ha borrado nada.</h3>
+</ng-template>
+
+<button
+  *ngIf="heroNames.length > 0"
+  class="btn btn-outline-danger"
+  (click)="removeHero()">
+  Borrar último héroe.
+</button>
+
+<ul class="mt-2 list-group">
+  <li class="list-group-item" *ngFor="let item of heroNames">{{ item }}</li>
+</ul>
