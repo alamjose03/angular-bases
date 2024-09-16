@@ -1,0 +1,20 @@
+<h1>DBZ Main Page.</h1>
+<hr />
+
+<div class="row">
+  <div class="col">
+    <!-- Estamos mandando a la propiedad characterList del componente dbz-list la información del componente
+     main-page que esta en la propiedad character. -->
+    <dbz-list
+      [characterList]="character"
+      (onDeleteCharacter)="onDeleteCharacter($event)"
+    ></dbz-list>
+  </div>
+
+  <!-- Las llaves cuadradas son para atributos y los paréntesis para eventos. -->
+  <div class="col">
+    <dbz-add-character
+      (onNewCharacter)="onNewCharacter($event)"
+    ></dbz-add-character>
+  </div>
+</div>
